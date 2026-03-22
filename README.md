@@ -1,6 +1,6 @@
 # trBookmark Wordpress Theme
 - **テーマ名**: trBookmark WordPress Theme
-- **バージョン**: 1.0.1
+- **バージョン**: 1.0.3
 - **ライセンス**: GPL-2.0-or-later
 - **作者**: trBookmark
 - **作者 URI**: https://trbook.site
@@ -82,6 +82,9 @@ trBookmark/
 
 ### 1.0.2 - 2026-03-22
 - front ページを整える
+
+### 1.0.3 - 2026-03-22
+- css バージョン用にファイル更新日を取得
 
 ## ライセンス
 

@@ -96,7 +96,7 @@ add_action( 'wp_enqueue_scripts',
     // wp_enqueue_style('googleapis', 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,700&family=M+PLUS+1+Code:wght@300..700&display=swap', array(), false, 'all');
 
     // メインのスタイルシート
-    wp_enqueue_style('main-style', get_template_directory_uri() . '/css/style.min.css', array(), false, 'all');
+    wp_enqueue_style('main-style', get_template_directory_uri() . '/css/style.min.css', array(), script_datetime( 'css/style.min.css' ), 'all');
 
     // デフォルトのcss等を削除
     if (!is_user_logged_in()) {
@@ -118,6 +118,10 @@ add_action( 'wp_enqueue_scripts',
     // wp_dequeue_style('wp-block-library');
   }
 );
+// css バージョン用にファイル更新日を取得
+function script_datetime( $path ) {
+	return date( "YmdHis", @filemtime( get_theme_file_path( $path ) )+3600*9 );
+}
 
 // // bodyにページに応じたclassを付与
 // add_filter( 'body_class',
