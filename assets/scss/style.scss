@@ -3,7 +3,7 @@ Theme Name: trBookmark
 Theme URL: https://trbook.site
 Description: trBookmark's Portfolio のためのカスタムテーマ
 Author: trBookmark
-Version: 1.0
+Version: 1.0.1
 */
 :root {
   --text-color: rgb(44, 23, 11);
@@ -14,30 +14,58 @@ Version: 1.0
 
 html {
   line-height: 1.68;
-  // &:focus-within {
-  //   scroll-behavior: smooth; //やめておこう
-  // }
-  margin-top: 0 !important; // for safari
   background-color: var(--background-color);
 }
 
-// フォントはテーマからアップロードされていることが前提
-// 英数はLato
+// フォントファイルまでのパス
+$upload_path: "../../../../images/fonts/";
+
+// 英数は Lato
 @font-face {
   font-family: "singleByte";
-  src: url("../../../../images/fonts/Lato-Light.ttf");
+  src:
+    url($upload_path + "Lato-Light.woff2") format("woff2"),
+    url($upload_path + "Lato-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
   unicode-range: U+0000-007A;
 }
-// それ以外はMPLUS1Code
 @font-face {
-  font-family: "MPLUS";
-  src: url("../../../../images/fonts/MPLUS1Code-VariableFont_wght.ttf");
+  font-family: "Lato";
+  src:
+    url($upload_path + "Lato-Regular.woff2") format("woff2"),
+    url($upload_path + "Lato-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-007A;
+}
+
+// それ以外は M PLUS 1 Code
+@font-face {
+  font-family: "M PLUS 1 Code";
+  src:
+    url($upload_path + "MPLUS1Code-Light.woff2") format("woff2"),
+    url($upload_path + "MPLUS1Code-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "M PLUS 1 Code";
+  src:
+    url($upload_path + "MPLUS1Code-Regular.woff2") format("woff2"),
+    url($upload_path + "MPLUS1Code-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "singleByte", "MPLUS", sans-serif;
+  font-family: "singleByte", "M PLUS 1 Code", sans-serif;
   font-weight: 300;
   font-style: normal;
   color: var(--text-color);
@@ -92,7 +120,7 @@ h1,
 h2,
 h3,
 address {
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
 }
 
