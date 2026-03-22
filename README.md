@@ -80,6 +80,9 @@ trBookmark/
 - font を woff に変更
 - README 加筆
 
+### 1.0.2 - 2026-03-22
+- front ページを整える
+
 ## ライセンス
 
 このテーマは [GNU General Public License v2.0 以降](https://www.gnu.org/licenses/gpl-2.0.html) のもとで公開されています。
