@@ -9,6 +9,7 @@ get_header('', ['body-class' => 'index_page']); // body に class を付与
   <main class="main">
     <div class="post_sections">
       <h1 class="post_sections-inner"><? bloginfo('name') ?></h1>
+      <a href="/portfolio">Portfolio</a>
     </div>
   </main>
 <?php get_footer(); ?>
