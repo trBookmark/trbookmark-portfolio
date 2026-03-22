@@ -11,6 +11,12 @@ if ( function_exists( 'wpcf7_enqueue_styles' ) ) wpcf7_enqueue_styles();
 
 get_header('', ['body-class' => 'portfolio-archive']); // body に class を付与
 get_template_part( 'templates/portfolio/nav' );
+
+// 固定ページabout、contactを取得
+$page_id = get_page_by_path('about');
+$about = $page_id ? get_post( $page_id ) : '';
+$page_id = get_page_by_path('contact');
+$contact = $page_id ? get_post( $page_id ) : '';
 ?>
   <main class="main">
     <div class="post_sections" id="title-section">
@@ -22,9 +28,9 @@ get_template_part( 'templates/portfolio/nav' );
         <h2 id="sites">Sites</h2>
         <div class="sites_grid">
           <?php
-          $count = 0;
-          if(have_posts()): while(have_posts()): the_post();
-          $count++;
+            $count = 0;
+            if(have_posts()): while(have_posts()): the_post();
+            $count++;
           ?>
           <section class="sites_grid-section js-fadein">
             <h3 class="sites_grid-site-title"><?php the_title(); ?></h3>
@@ -36,34 +42,39 @@ get_template_part( 'templates/portfolio/nav' );
           <?php endwhile;endif; wp_reset_query(); ?>
         </div>
       </article>
-      <div class="scroll-down"><a href="#about-section">Scroll</a></div>
+      <?php if (!empty($about -> post_content)): ?>
+        <div class="scroll-down"><a href="#about-section">Scroll</a></div>
+    <?php elseif(!empty($contact -> post_content)): ?>
+        <div class="scroll-down"><a href="#contact-section">Scroll</a></div>
+    <?php endif; ?>
     </div>
+    <?php if (!empty($about -> post_content)): ?>
     <article class="post_sections" id="about-section">
       <div class="post_sections-inner">
-        <?php
-        $page_id = get_page_by_path('about');
-        $page = get_post( $page_id );
-        if (!empty($page -> post_content)){
-          echo '<section class="post_sections-about_content">';
-          echo '<h2 id="about" class="article-title">'.$page -> post_title.'</h2>';
-          echo $page -> post_content;
-          echo '</section>';
-        }
-        $page_id = get_page_by_path('contact');
-        $page = get_post( $page_id );
-        if (!empty($page -> post_content)){
-          echo '<section class="post_sections-contact_content">';
-          echo '<h2 id="contact" class="article-title">'.$page -> post_title.'</h2>';
-          echo do_shortcode($page -> post_content);
-          echo '</section>';
-        }
-        ?>
+          <section class="post_sections-about_content">
+            <h2 id="about" class="article-title"><?php echo $about -> post_title; ?></h2>
+            <?php echo $about -> post_content; ?>
+          </section>
+      </div>
+      <?php if(!empty($contact -> post_content)): ?>
+          <div class="scroll-down"><a href="#contact-section">Scroll</a></div>
+      <?php endif; ?>
+    </article>
+    <?php endif; ?>
+    <?php if (!empty($contact -> post_content)): ?>
+    <article class="post_sections" id="contact-section">
+      <div class="post_sections-inner">
+          <section class="post_sections-contact_content">
+            <h2 id="contact" class="article-title"><?php echo $contact -> post_title; ?></h2>
+            <?php echo do_shortcode($contact -> post_content); ?>
+          </section>
       </div>
     </article>
+    <?php endif; ?>
     <?php
-    $count = 0;
-    if(have_posts()): while(have_posts()): the_post();
-    $count++;
+      $count = 0;
+      if(have_posts()): while(have_posts()): the_post();
+      $count++;
     ?>
     <dialog class="sites_grid-description" id="modal-<? echo $count ?>" aria-labelledby="modal-<? echo $count ?>-title" role="dialog" aria-modal="true">
       <div class="sites_grid-description-inner">
