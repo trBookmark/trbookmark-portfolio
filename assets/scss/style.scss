@@ -5,6 +5,10 @@ Description: trBookmark's Portfolio のためのカスタムテーマ
 Author: trBookmark
 Version: 1.0.1
 */
+
+// フォントファイルまでのパス
+$upload_path: "../../../../images/fonts/";
+
 :root {
   --text-color: rgb(44, 23, 11);
   --accent-color: rgb(240, 85, 14);
@@ -18,9 +22,6 @@ html {
   // safai UAスタイルシート の打ち消し
   margin-top: 0 !important;
 }
-
-// フォントファイルまでのパス
-$upload_path: "../../../../images/fonts/";
 
 // 英数は Lato
 @font-face {
@@ -79,7 +80,7 @@ body {
       height: calc(100vh - 3rem);
       height: calc(100dvh - 3rem);
     }
-    fotter {
+    footer {
       position: fixed;
       bottom: 0;
       width: 100%;
@@ -341,7 +342,7 @@ dialog.sites_grid-description {
 }
 
 // ページネーション
-.fotter__nav {
+.footer__nav {
   display: block;
   margin: 0;
   padding: 1rem 0 0 0;
@@ -372,7 +373,7 @@ dialog.sites_grid-description {
   }
 }
 
-.fotter {
+.footer {
   background-image: linear-gradient(to bottom left, rgb(231, 222, 199), var(--dark-color));
   margin: 0;
   padding: 0;
@@ -406,10 +407,10 @@ dialog.sites_grid-description {
     height: 9px;
     border-radius: 50%;
     background: var(--text-color);
-    opacity: 0;
+    opacity: 1;
     animation:
-      downMoveCircle 5s ease-in-out infinite,
-      downHideCircle 5s ease-out infinite;
+      downMoveCircle 4s ease-in-out infinite,
+      downHideCircle 4s ease-out infinite;
   }
   &:after {
     content: "";
@@ -435,8 +436,19 @@ body.front_page {
     &-inner {
       text-align: center;
     }
+    &-list {
+      list-style-type: none;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      padding-inline-start: 0;
+      a {
+        display: block;
+        padding: 0.3rem;
+        width: 100%;
+      }
+    }
   }
-  fotter {
+  .footer {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -445,41 +457,20 @@ body.front_page {
 }
 
 @keyframes downMoveCircle {
-  0% {
-    bottom: 40px;
+  from {
+    transform: translateY(-45px) scale(0.7, 1);
   }
-  1% {
-    bottom: 36px;
+  12% {
+    transform: translateY(0px) scale(1, 0.6);
   }
-  2% {
-    bottom: 30px;
+  20% {
+    transform: translateY(-30px) scale(0.7, 0.6);
   }
-  4% {
-    bottom: 10px;
+  30% {
+    transform: translateY(10px) scale(0.7, 1);
   }
-  5% {
-    bottom: 4px;
-  }
-  6% {
-    bottom: 0px;
-  }
-  8% {
-    bottom: 26px;
-  }
-  9% {
-    bottom: 30px;
-  }
-  10% {
-    bottom: 27px;
-  }
-  11% {
-    bottom: 23px;
-  }
-  16% {
-    bottom: 0px;
-  }
-  100% {
-    bottom: 0px;
+  to {
+    transform: translateY(10px) scale(0.7, 1);
   }
 }
 
@@ -487,13 +478,10 @@ body.front_page {
   0% {
     opacity: 0;
   }
-  5% {
+  20% {
     opacity: 1;
   }
-  10% {
-    opacity: 0.9;
-  }
-  20% {
+  29% {
     opacity: 0;
   }
   100% {

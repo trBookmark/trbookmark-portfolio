@@ -265,7 +265,7 @@ add_action('wp_head',
       // トップページ
       $ogp_title = get_bloginfo('name');
       $ogp_descr = get_bloginfo('description');
-      $ogp_url = get_bloginfo('url'); // サイトのURL, home_url()では、delete_domain_attachment_url によりルート相対パスになる
+      $ogp_url = get_bloginfo('url'); // サイトのURL
       $description = get_bloginfo('description');
       $canonical = $ogp_url;
     }

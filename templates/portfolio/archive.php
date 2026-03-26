@@ -5,6 +5,7 @@
  * Template for the Archive of Custom post type 'portfolio'.
  */
 
+
 // Contact Form 7 の JavaScript と CSS を有効化
 if ( function_exists( 'wpcf7_enqueue_scripts' ) ) wpcf7_enqueue_scripts();
 if ( function_exists( 'wpcf7_enqueue_styles' ) ) wpcf7_enqueue_styles();

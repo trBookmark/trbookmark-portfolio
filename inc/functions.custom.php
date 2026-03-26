@@ -18,11 +18,6 @@ $custom_fields = [
   'portfolio' => [
     'portfolio-caption' => 'キャプション',
     'portfolio-url' => 'サイトurl',
-    // 'excerpt' => 'メモ',
-    // 'menu_order' => '並び順',
-    // 'title' => 'タイトル',
-    // 'content' => '本文',
-    // 画像はサムネイル
   ],
 ];
 
@@ -123,30 +118,10 @@ function create_portfolio() {
  */
 
 function remove_editor_supports_custom() {
-  // // 投稿タイトル
-  // remove_post_type_support( 'portfolio', 'title' );
-  // // コンテンツ
-  // remove_post_type_support( 'portfolio', 'editor' );
-  // // 投稿者設定
-  // remove_post_type_support( 'portfolio', 'author' );
-  // // アイキャッチ
-  // remove_post_type_support( 'portfolio', 'thumbnail' );
-  // 抜粋
-  // remove_post_type_support( 'portfolio', 'excerpt' );
   // ピンバックとトラックバック
   remove_post_type_support( 'portfolio', 'trackbacks' );
   // カスタムフィールド
   remove_post_type_support( 'portfolio', 'custom-fields' );
-  // // コメント
-  // remove_post_type_support( 'portfolio', 'comments' );
-  // // リビジョン
-  // remove_post_type_support( 'portfolio', 'revisions' );
-  // // フォーマット
-  // remove_post_type_support( 'portfolio', 'post-formats' );
-  // // カテゴリー
-  // unregister_taxonomy_for_object_type( 'category', 'portfolio' );
-  // // タグ
-  // unregister_taxonomy_for_object_type( 'post_tag', 'portfolio' );
 }
 
 /*

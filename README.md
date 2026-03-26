@@ -1,10 +1,10 @@
 # trBookmark Wordpress Theme
 - **テーマ名**: trBookmark WordPress Theme
-- **バージョン**: 1.0.3
+- **バージョン**: 1.0.4
 - **ライセンス**: GPL-2.0-or-later
 - **作者**: trBookmark
 - **作者 URI**: https://trbook.site
-- **テーマ URI**: https://trbook.site
+- **テーマ URI**: https://trbook.site/portfolio
 
 WordPress と PHP のバージョンの指定はありませんが、セキュリティ上 最新バージョンを使用することをお勧めします。以下は動作確認を行った環境です。
 
@@ -22,8 +22,8 @@ trBookmark Wordpress Theme は、カスタム投稿タイプを利用するた�
 ## 特徴
 
 - レスポンシブデザイン対応
-- 複数カスタム投稿タイプ設定対応
 - 現時点でトップページは空（ブログ機能等、後日追加予定）
+- 複数カスタム投稿タイプ設定対応
 - 現時点のメインページは **portfolio**
 - About、Contact は固定ページとして自動で追加（内容は自由に編集可能）
 
@@ -64,12 +64,11 @@ trBookmark/
 ```
 
 ## 注意点
-- 1.0 では、sidebar.php、page.php、カスタム投稿タイプ portfolio 用 single.php などは不要なため **未作成** です。
-  - トップページ：表示はされますが内容はありません
-  - single, page：表示はされますが最低限の表示だけです
-- アップロードパスはトップディレクトリへ変更することを前提に作成しているので、適宜 SCSS 変数の編集が必要です。
-- フォントはこのテーマに含めていません。
-- コンタクトフォーム：プラグイン [Contact Form 7](https://ja.wordpress.org/plugins/contact-form-7/) のインストールが必要
+- 1.0 では、sidebar.php、page.php、カスタム投稿タイプ portfolio 用 single.php などは不要なため **未作成**
+  - トップページ：各カスタム投稿タイプアーカイブへのリンクのみ
+  - single, page：最低限の表示のみ
+- SCSS 変数 ```$upload_path``` はアップロードパスに合わせて編集が必要
+- コンタクトフォーム：プラグイン [Contact Form 7](https://ja.wordpress.org/plugins/contact-form-7/) のインストールが前提
 
 ## 変更履歴
 
@@ -86,22 +85,13 @@ trBookmark/
 ### 1.0.3 - 2026-03-22
 - css バージョン用にファイル更新日を取得
 
+### 1.0.4 - 2026-03-26
+- トップページ：カスタム投稿タイプへの投稿がない場合の処理を追加
+- function 周りの不要な記述を削除
+- タイポ修正
+
 ## ライセンス
 
 このテーマは [GNU General Public License v2.0 以降](https://www.gnu.org/licenses/gpl-2.0.html) のもとで公開されています。
 
 このテーマは、完全に私の個人利用前提で公開されており、いかなる保証もありません。
-
-- **テーマファイル**: GPL-2.0-or-later
-- **フォント**
-  - Lato
-    - Copyright (c) 2010-2014 by tyPoland Lukasz Dziedzic
-    - License: SIL Open Font License, 1.1, https://openfontlicense.org/open-font-license-official-text/
-    - Source: https://github.com/latofonts/lato-source/
-  - M PLUS 1 Code
-    - Copyright 2021 The M+ FONTS Project Authors
-    - License: SIL Open Font License, 1.1, https://openfontlicense.org/open-font-license-official-text/
-    - Source: https://github.com/coz-m/MPLUS_FONTS
-- **画像素材**:
-  - Copyright (c) 2026 by [trBookmark](https://trbook.site)
-  - License: CC BY-NC-ND, 4.0, https://creativecommons.org/licenses/by-nc/4.0/

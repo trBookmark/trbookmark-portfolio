@@ -23,11 +23,11 @@ get_header();
             $next_post = get_next_post();  // 次の投稿
             if($prev_post || $next_post):
           ?>
-          <nav class="fotter__nav">
-            <ul class="fotter__nav-list">
-              <?php if($prev_post):?><li class="fotter__nav-listitem"><?php previous_post_link('« %link', '%title', false, ''); ?></li><?php endif; ?>
-              <li class="fotter__nav-listitem"><a href="<? echo get_post_type_archive_link( get_post_type() ); ?>">一覧</a></li>
-              <?php if($next_post):?><li class="fotter__nav-listitem"><?php next_post_link('%link »', '%title', false, ''); ?></li><?php endif; ?>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <?php if($prev_post):?><li class="footer__nav-listitem"><?php previous_post_link('« %link', '%title', false, ''); ?></li><?php endif; ?>
+              <li class="footer__nav-listitem"><a href="<? echo get_post_type_archive_link( get_post_type() ); ?>">一覧</a></li>
+              <?php if($next_post):?><li class="footer__nav-listitem"><?php next_post_link('%link »', '%title', false, ''); ?></li><?php endif; ?>
             </ul>
           </nav>
         </div><?php endif; ?>

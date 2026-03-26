@@ -12,34 +12,6 @@ if (!defined('ABSPATH')) {
 // カスタム投稿タイプ用変数
 global $custom_fields;
 
-
-// URLをルート相対パスに変更
-function delete_domain_attachment_url( $url ) {
-  if ( preg_match( '/^http(s)?:\/\/[^\/\s]+(.*)$/', $url, $match ) ) {
-    $url = $match[2];
-  }
-  return $url;
-}
-// 画像src
-add_filter('wp_get_attachment_url', 'delete_domain_attachment_url');
-// 添付データのパーマリンクURL
-add_filter('attachment_link', 'delete_domain_attachment_url');
-// 添付ファイルへのリンクを示すHTMLテキスト
-add_filter('wp_get_attachment_link', 'delete_domain_attachment_url');
-// tag_link
-add_filter('tag_link', 'delete_domain_attachment_url');
-// パーマリンク
-add_filter( 'the_permalink',
-  function ($url) {
-    return delete_domain_attachment_url($url);
-  }
-);
-// それ以外は wp_make_link_relative(); を使用
-// wp_make_link_relative( string $link ): string
-// $link string required Full URL path.
-// httpまたはhttpsプロトコルとドメインを削除。
-// パスの先頭に '/' を残す、Webルートベースからのリンク
-
 // カスタム投稿タイプ設定
 locate_template('inc/functions.custom.php', true);
 // 共通設定
