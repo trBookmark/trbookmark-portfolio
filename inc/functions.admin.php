@@ -434,7 +434,7 @@ function meta_box_change_radio($post, $box): void
   echo '<ul id="' . $tax_name . 'checklist" data-wp-lists="list:.' . $tax_name . '" class="categorychecklist form-no-clear">';
 
   foreach ($terms as $term) {
-    $id = "popular-${tax_name}-{$term->term_id}";
+    $id = "popular-{$tax_name}-{$term->term_id}";
     $selected = $selected_id == $term->term_id ? 'checked="checked"' : '';
     echo '<li id="' . $id . '" class="popular-category">';
     echo '<label class="selectit">';
