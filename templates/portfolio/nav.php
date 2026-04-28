@@ -12,7 +12,7 @@ $contact = $page_id ? get_post( $page_id ) : '';
 
 ?>
   <header class="header">
-    <nav class="nav">
+    <nav class="nav" aria-label="サイト内メニュー">
       <ul class="nav-list">
         <li class="nav-listitem"><a href="#top"><img src="/images/trBookmark-Icon-150x150.png" width="32" height="32" alt="top" title="<?php echo bloginfo('name'); ?>"></a></li>
         <li class="nav-listitem"><a href="#sites-section">Sites</a></li>

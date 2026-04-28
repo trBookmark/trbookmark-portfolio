@@ -195,7 +195,7 @@ a:active {
   column-gap: 2rem;
   align-items: start;
   margin: 0;
-
+  width: 100%;
   @media (min-width: 1700px) {
     margin: 0 auto;
     width: 1360px;
@@ -317,12 +317,10 @@ dialog.sites_grid-description {
   min-height: 100dvh;
   display: grid; // センタリング1
   place-items: center; // センタリング2
-  &-inner {
-    padding: 3rem 10vw;
-    padding: 3rem 10dvw;
-    width: 100%;
-    box-sizing: border-box;
-  }
+  padding: 3rem 10vw;
+  padding: 3rem 10dvw;
+  width: 100%;
+  box-sizing: border-box;
   &-content {
     width: fit-content;
     margin: auto;
@@ -433,9 +431,7 @@ body.front_page {
   .post_sections {
     background-image: radial-gradient(circle at 55% 45%, rgba(255, 255, 255, 0.8) 0%, transparent 80%), linear-gradient(to bottom left, rgb(231, 222, 199), var(--dark-color));
     min-height: calc(100dvh - 3rem);
-    &-inner {
-      text-align: center;
-    }
+    text-align: center;
     &-list {
       list-style-type: none;
       margin-block-start: 0;

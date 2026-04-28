@@ -24,39 +24,35 @@ $contact = $page_id ? get_post( $page_id ) : '';
       <h1 class="post_sections-inner">trBookmark's Portfolio</h1>
       <div class="scroll-down"><a href="#sites-section">Scroll</a></div>
     </div>
-    <div class="post_sections" id="sites-section">
-      <article class="post_sections-inner">
-        <h2 id="sites">Sites</h2>
-        <div class="sites_grid">
-          <?php
-            $count = 0;
-            if(have_posts()): while(have_posts()): the_post();
-            $count++;
-          ?>
-          <section class="sites_grid-section js-fadein">
-            <h3 class="sites_grid-site-title"><?php the_title(); ?></h3>
-            <figure class="sites_grid-figure js-showDialog" data-dialog="modal-<? echo $count ?>">
-              <picture><?php if(has_post_thumbnail()) the_post_thumbnail( 'medium_large', array('class' => 'sites_grid-img') ); ?></picture>
-              <figcaption class="sites_grid-caption"><?echo get_post_meta(get_the_ID(), 'portfolio-caption', true); ?></figcaption>
-            </figure>
-          </section>
-          <?php endwhile;endif; wp_reset_query(); ?>
-        </div>
-      </article>
+    <article class="post_sections" id="sites-section">
+      <h2 id="sites">Sites</h2>
+      <div class="sites_grid">
+        <?php
+          $count = 0;
+          if(have_posts()): while(have_posts()): the_post();
+          $count++;
+        ?>
+        <section class="sites_grid-section js-fadein">
+          <h3 class="sites_grid-site-title"><?php the_title(); ?></h3>
+          <figure class="sites_grid-figure js-showDialog" data-dialog="modal-<? echo $count ?>">
+            <?php if(has_post_thumbnail()) the_post_thumbnail( 'medium_large', array('class' => 'sites_grid-img') ); ?>
+            <figcaption class="sites_grid-caption"><?echo get_post_meta(get_the_ID(), 'portfolio-caption', true); ?></figcaption>
+          </figure>
+        </section>
+        <?php endwhile;endif; wp_reset_query(); ?>
+      </div>
       <?php if (!empty($about -> post_content)): ?>
-        <div class="scroll-down"><a href="#about-section">Scroll</a></div>
-    <?php elseif(!empty($contact -> post_content)): ?>
-        <div class="scroll-down"><a href="#contact-section">Scroll</a></div>
-    <?php endif; ?>
-    </div>
+      <div class="scroll-down"><a href="#about-section">Scroll</a></div>
+      <?php elseif(!empty($contact -> post_content)): ?>
+      <div class="scroll-down"><a href="#contact-section">Scroll</a></div>
+      <?php endif; ?>
+    </article>
     <?php if (!empty($about -> post_content)): ?>
     <article class="post_sections" id="about-section">
-      <div class="post_sections-inner">
-          <section class="post_sections-about_content">
-            <h2 id="about" class="article-title"><?php echo $about -> post_title; ?></h2>
-            <?php echo $about -> post_content; ?>
-          </section>
-      </div>
+      <section class="post_sections-about_content">
+        <h2 id="about" class="article-title"><?php echo $about -> post_title; ?></h2>
+        <?php echo $about -> post_content; ?>
+      </section>
       <?php if(!empty($contact -> post_content)): ?>
           <div class="scroll-down"><a href="#contact-section">Scroll</a></div>
       <?php endif; ?>
@@ -64,12 +60,10 @@ $contact = $page_id ? get_post( $page_id ) : '';
     <?php endif; ?>
     <?php if (!empty($contact -> post_content)): ?>
     <article class="post_sections" id="contact-section">
-      <div class="post_sections-inner">
-          <section class="post_sections-contact_content">
-            <h2 id="contact" class="article-title"><?php echo $contact -> post_title; ?></h2>
-            <?php echo do_shortcode($contact -> post_content); ?>
-          </section>
-      </div>
+      <section class="post_sections-contact_content">
+        <h2 id="contact" class="article-title"><?php echo $contact -> post_title; ?></h2>
+        <?php echo do_shortcode($contact -> post_content); ?>
+      </section>
     </article>
     <?php endif; ?>
     <?php
@@ -77,7 +71,7 @@ $contact = $page_id ? get_post( $page_id ) : '';
       if(have_posts()): while(have_posts()): the_post();
       $count++;
     ?>
-    <dialog class="sites_grid-description" id="modal-<? echo $count ?>" aria-labelledby="modal-<? echo $count ?>-title" role="dialog" aria-modal="true">
+    <dialog class="sites_grid-description" id="modal-<? echo $count ?>" aria-labelledby="modal-<? echo $count ?>-title" aria-modal="true">
       <div class="sites_grid-description-inner">
         <h3 id="modal-<? echo $count ?>-title"><?php the_title(); ?> 詳細</h3>
         <p><?php echo wp_kses_post(get_the_excerpt()); ?></p>

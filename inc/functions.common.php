@@ -334,3 +334,16 @@ add_action('after_setup_theme',
     }
   }
 );
+
+/*
+ * Trailing slash を削除
+ */
+add_action( 'template_redirect',
+  function () {
+    if ( is_single() || is_page() || is_archive() ) {
+      ob_start( function( $buffer ) {
+        return preg_replace( '/\s*\/>/', '>', $buffer );
+      } );
+    }
+  }
+);
