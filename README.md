@@ -1,6 +1,6 @@
-# trBookmark Wordpress Theme
+# trBookmark WordPress Theme
 - **テーマ名**: trBookmark WordPress Theme
-- **バージョン**: 1.0.4
+- **バージョン**: 1.0.5
 - **ライセンス**: GPL-2.0-or-later
 - **作者**: trBookmark
 - **作者 URI**: https://trbook.site
@@ -89,6 +89,10 @@ trBookmark/
 - トップページ：カスタム投稿タイプへの投稿がない場合の処理を追加
 - function 周りの不要な記述を削除
 - タイポ修正
+
+### 1.0.5 - 2026-04-28
+- マークアップのエラーを修正
+- 不要なタグを削除
 
 ## ライセンス
 
