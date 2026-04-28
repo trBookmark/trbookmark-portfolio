@@ -33,7 +33,7 @@ $contact = $page_id ? get_post( $page_id ) : '';
           $count++;
         ?>
         <section class="sites_grid-section js-fadein">
-          <h3 class="sites_grid-site-title"><?php the_title(); ?></h3>
+          <h3 class="sites_grid-site-title"><a href="<?echo esc_url(get_post_meta(get_the_ID(), 'portfolio-url', true)); ?>"><?php the_title(); ?></a></h3>
           <figure class="sites_grid-figure js-showDialog" data-dialog="modal-<? echo $count ?>">
             <?php if(has_post_thumbnail()) the_post_thumbnail( 'medium_large', array('class' => 'sites_grid-img') ); ?>
             <figcaption class="sites_grid-caption"><?echo get_post_meta(get_the_ID(), 'portfolio-caption', true); ?></figcaption>
