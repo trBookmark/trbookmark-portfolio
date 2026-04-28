@@ -20,10 +20,10 @@ $page_id = get_page_by_path('contact');
 $contact = $page_id ? get_post( $page_id ) : '';
 ?>
   <main class="main">
-    <div class="post_sections" id="title-section">
+    <section class="post_sections" id="title-section">
       <h1 class="post_sections-inner">trBookmark's Portfolio</h1>
       <div class="scroll-down"><a href="#sites-section">Scroll</a></div>
-    </div>
+    </section>
     <article class="post_sections" id="sites-section">
       <h2 id="sites">Sites</h2>
       <div class="sites_grid">
@@ -48,23 +48,23 @@ $contact = $page_id ? get_post( $page_id ) : '';
       <?php endif; ?>
     </article>
     <?php if (!empty($about -> post_content)): ?>
-    <article class="post_sections" id="about-section">
+    <div class="post_sections" id="about-section">
       <section class="post_sections-about_content">
         <h2 id="about" class="article-title"><?php echo $about -> post_title; ?></h2>
         <?php echo $about -> post_content; ?>
       </section>
       <?php if(!empty($contact -> post_content)): ?>
-          <div class="scroll-down"><a href="#contact-section">Scroll</a></div>
+      <div class="scroll-down"><a href="#contact-section">Scroll</a></div>
       <?php endif; ?>
-    </article>
+    </div>
     <?php endif; ?>
     <?php if (!empty($contact -> post_content)): ?>
-    <article class="post_sections" id="contact-section">
+    <div class="post_sections" id="contact-section">
       <section class="post_sections-contact_content">
         <h2 id="contact" class="article-title"><?php echo $contact -> post_title; ?></h2>
         <?php echo do_shortcode($contact -> post_content); ?>
       </section>
-    </article>
+    </div>
     <?php endif; ?>
     <?php
       $count = 0;
